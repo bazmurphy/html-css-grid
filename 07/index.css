@@ -1,0 +1,15 @@
+.container {
+  display: grid;
+  grid-gap: 5px;
+  grid-template-columns: repeat(6, 100px);
+  
+  /* auto-fit is how the columns spill over into the next row */
+  /* auto-fit tries to fill up the grid with as many columsn as possible until theres not enough space to fit a new column */
+  /* fraction units will fill up the entire column */
+  grid-template-columns: repeat(auto-fit, 100px);
+  
+  /* minmax tells the column to be a minimum of 100px, but when the overall container space is more it can use 1fr instead */
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+
+  grid-template-rows: repeat(2, 100px);
+}

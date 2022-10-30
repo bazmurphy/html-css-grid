@@ -1,0 +1,37 @@
+.container {
+  display: grid;
+  grid-gap: 5px;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  grid-auto-rows: 75px;
+
+  /* we need to understand why the blank grid cells appear in this configuration */
+  /* it lays the cells out from the top left, going along, then hits the end, and continues on the next row */
+  /* it tries to fit the first empty space but cannot because of the size of the content, and keeps going untill it finds a suitable space */
+  /* however this will leave gaps, to combat this we can use grid-auto-flow  */
+  /* the default is row, this means it will lay the items out one row at a time, from left to right, etc.*/
+  /* grid-auto-flow: row; */
+  
+  /* we can use the dense packing algorithm, which attempts to fill the holes in the grid */
+  /* and smaller items come up later, it will move those items up to fill the blank spaces */
+  /* dense is an example of source order independence, the grid can arrange the items regardless of how they are laid out in the HTML */
+  grid-auto-flow: dense;
+}
+
+.horizontal {
+  /* the grid-colum and grid-row properties can take a lot of different values and combinations */
+  
+  /* this is how to get the cells to span 2 but not all start on a fixed column value */
+  /* grid-column: auto / span 2; */
+
+  /* we can remove the auto */
+  grid-column: span 2;
+}
+
+.vertical {
+  grid-row: span 2;
+}
+
+.big {
+  grid-column: span 2;
+  grid-row: span 2;
+}
