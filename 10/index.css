@@ -2,12 +2,17 @@
   height: 100%; 
   display: grid;
   grid-gap: 3px;
-  grid-template-columns: 1fr 5fr;
-  grid-template-rows: 40px auto 40px; 
+  /* you define the -start and -end points for the various content */
+  /* you can then use those keywords below to define the grid-column/grid-row */
+  grid-template-columns: [main-start] 1fr [content-start] 5fr [content-end main-end];
+  grid-template-rows: [main-start] 40px [content-start] auto [content-end] 40px [main-end]; 
 }
 
 .header {
-  grid-column: 1 / 3;
+  /* grid-column: 1 / 3; */
+  /* grid-column: main-start main-end; */
+  /* the -start -end prefixes allow you to abbreviate to just "main" or "content" etc */
+  grid-column: main;
 }
 
 .menu {
@@ -15,9 +20,19 @@
 }
 
 .content {
-  grid-column: 2 / 3;
+  /* grid-column: 2 / 3; */
+  /* grid-column: content-start / content-end; */
+  /* the -start -end prefixes allow you to abbreviate to just "main" or "content" etc */
+  /* grid-column: content; */
+  /* we can also use grid-area in this case because we have a defined (boxed in) 4 left/right column start/end and top/bottom row start/end */
+  grid-area: content;
 }
 
 .footer {
-  grid-column: 1 / 3;
+  /* grid-column: 1 / 3; */
+  /* grid-column: main-start main-end; */
+  /* the -start -end prefixes allow you to abbreviate to just "main" or "content" etc */
+  grid-column: main;
+  /* we cannot use grid-area here on the footer because we have not defined 4 lines, it is is not boxed in like content */
+  /* because the main start line is at the top of the page, so the footer is only partially boxed in */
 }

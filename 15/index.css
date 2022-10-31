@@ -1,0 +1,54 @@
+/* flexbox is used for one dimensional layout, either row or column */
+/* grid is used for two dimensional layout */
+
+/* flexbox takes basis in the content, it's "CONTENT FIRST" */
+/* grid takes basis in the layout, its "LAYOUT FIRST" */
+
+/* with flexbox we make the element flex and then we don't have to do anything else, we let the content make most of the decisions of where they will be placed throughout the container */
+/* the 3rd child, layout, adds a margin to itself and therefore is all the way at the end of the container */
+
+/* with grid we cannot just make the element grid and start shoving content into the container, we also have to define columns/rows or both */
+/* grid therefore takes basis in the LAYOUT, you are constrained by the layout you define */
+/* with flexbox we can add as many items as we want, with grid we are constrained by the 12 columns we have pre-defined */
+/* and with grid we have to place the items according to the layout, we are not placing it by giving it a margin on its side like we did with flexbox */
+/* we are taking basis in the LAYOUT and saying that it needs to span from the first column line to the second column line to place itself */
+
+/* We can combine Grid and Flexbox to get the best of both worlds */
+/* We make the header element inside the Grid Container a Flex Container */
+
+.flexbox-header {
+  display: flex;
+}
+
+.flexbox-header > div:nth-child(3) {
+  margin-left: auto;
+}
+
+.grid-page {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: 40px 200px 40px;
+}
+
+.header {
+  grid-column: 1 / -1;
+  /* this was added */
+  display: flex;
+}
+
+/* this was added */
+.header > div:nth-child(3) {
+  margin-left: auto;
+}
+
+.menu {
+  grid-column: 1 / 2;
+}
+
+.content {
+  grid-column: 2 / -1;
+}
+
+.footer {
+  grid-column: 1 / -1;
+}

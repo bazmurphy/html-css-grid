@@ -1,0 +1,23 @@
+/* auto-fit vs auto-fill */
+
+.container {
+  border: 1px solid black;
+  display: grid;
+  grid-gap: 5px;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  grid-template-rows: 100px 100px;
+}
+
+.container2 {
+  border: 1px solid black;
+  display: grid;
+  grid-gap: 5px;
+  /* auto fill will automatically add a new column when space becomes available EVEN IF you do not have any content to add there */
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  grid-template-rows: 100px 100px;
+}
+
+/* under the hood: both auto-fit and auto-fill ARE ADDING NEW COLUMNS */
+/* auto-fit COLLAPSES THOSE NEW COLUMNS to 0 Pixels in WIDTH so that the current items that you have in the grid and the defined columns retake their 1fr width for example (as defined above)*/
+/* auto-fill ADDS NEW COLUMNS which are EMPTY every incrementation of 100px (as defined above) that becomes available */
+

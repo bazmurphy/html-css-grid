@@ -1,0 +1,23 @@
+.container {
+  border: 1px solid black;
+  height: 100%;
+  display: grid;
+  grid-gap: 5px;
+  grid-template-columns: repeat(3, 100px);
+  grid-template-rows: repeat(2, 100px);
+  /* how to justify-content and align-content */
+  /* justify-content controls items along the ROW axis left to right */
+  justify-content: center;
+  /* align-content controls items along the COLUMN axis top to bottom */
+  align-content: center;
+
+  /* other examples of justify-content */
+  /* justify-content: space-between; */
+  justify-content: space-evenly;
+  /* justify-content: space-around; */
+
+  /* other examples of align-content */
+  /* align-content: space-between; */
+  align-content: space-evenly;
+  /* align-content: space-evenly; */
+}

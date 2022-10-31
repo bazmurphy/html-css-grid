@@ -1,0 +1,39 @@
+.container {
+  height: 100%; 
+  display: grid;
+  grid-gap: 3px;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: 40px auto 40px;
+  /* the cells by default will stretch from the start point to the end point */
+  /* justify-items: stretch; */
+  
+  /* if we want the items to center themselves between the defined start and end point */
+  /* along the ROW axis (left-right) using justify-items */
+  /* justify-items: center; */
+  /* along the COLUMN axis (top-bottom) using align-items */
+  /* align-items: center; */
+
+  /* justify-items: start; */
+  /* align-items: start; */
+}
+
+.header {
+  grid-column: 1 / -1;
+}
+
+.menu {
+  grid-column: 1 / 3;
+}
+
+.content {
+  grid-column: 3 / -1;
+  /* we can individually control the cells */
+  /* justify-self controls the cell along the ROW axis (left-right) */
+  justify-self: center;
+  /* align-self controls the cell along the COLUMN axis (top-bottom) */
+  align-self: end;
+}
+
+.footer {
+  grid-column: 1 / -1;
+}
